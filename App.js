@@ -4,23 +4,19 @@ import Constants from "expo-constants";
 import { GameBoard } from "./src/GameBoard";
 
 export default function App() {
-  const [isFlipped, setIsFlipped] = useState(false);
-  const handleClick = (e) => {
-    console.log("yay i pressed");
+  const [score, setScore] = useState(0);
 
-    console.log();
-
-    setIsFlipped(true);
+  const incrememntScore = () => {
+    setScore(score + 1);
   };
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Match Game</Text>
       <View style={styles.gameBoard}>
-        <GameBoard onClick={handleClick} isFlipped={isFlipped} clickVal />
+        <GameBoard incrememntScore={incrememntScore} />
       </View>
       <View style={styles.score}>
-        <Text>Score here</Text>
+        <Text>{score}</Text>
       </View>
     </View>
   );
